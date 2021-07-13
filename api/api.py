@@ -4,9 +4,13 @@ from pythonBackend import Visualizer
 app = Flask(__name__)
 
 @app.route('/linear')
-def get_current_time():
+def linear():
     visualzation = Visualizer("Untitled.png")
-    print("hello")
     print(visualzation.zigZag(19))
     return {'data': visualzation.zigZag(19)}
 
+@app.route('/hilbert')
+def hilbert():
+    visualzation = Visualizer("Untitled.png")
+    print(visualzation.hilbert())
+    return {'data': visualzation.hilbert()}

@@ -51,9 +51,7 @@ class Visualizer:
                 rowCount+=1
             count+=1
         if not currentList == []:    
-            finalList.append(currentList)
-
-                
+            finalList.append((currentList + ["#000000"] * width)[0:width])
         return finalList
         
     def hilbert(self):
@@ -66,7 +64,7 @@ class Visualizer:
         rowMax = max([i[0] for i in pointList])+1
         colMax = max([i[1] for i in pointList])+1
         
-        finalList = [[0 for x in range(colMax)] for y in range(rowMax)]
+        finalList = [["#000000" for x in range(colMax)] for y in range(rowMax)]
         
         for index, currentPoint in enumerate(pointList):
             finalList[currentPoint[0]][currentPoint[1]] = self.colorList[index]
