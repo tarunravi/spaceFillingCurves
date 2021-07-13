@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./Box.css";
 
 
-function Box({color}) {
-  console.log(color)
+function Box({color, height}) {
+  console.log(window.innerHeight)
+  
   const mystyle = {
     backgroundColor: color,
+    flex: 1,
     width: "100%",
-    height: "10px"
+    height: height+"px",
+    zIndex: "1",
   };
 
 

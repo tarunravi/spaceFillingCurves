@@ -6,7 +6,7 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
+    fetch('/linear').then(res => res.json()).then(data => {
       setCurrentTime(data.data);
     })
   }, [])
@@ -14,10 +14,12 @@ function App() {
   return (
     <div className="App">
       {
-        currentTime && currentTime.map(row => 
-          row.map(element => <Box color={element}/>)
+        currentTime && currentTime.map(row => (
+          <div className="row">{row.map(element => <Box color={element} height={window.innerHeight/currentTime.length}/>)}</div>
+          )
         )
-      }        
+      }  
+      {currentTime &&  console.log(currentTime)}      
     </div>
   );
 }

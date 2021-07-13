@@ -3,7 +3,7 @@ from pythonBackend import Visualizer
 
 app = Flask(__name__)
 
-@app.route('/time')
+@app.route('/linear')
 def get_current_time():
     visualzation = Visualizer("Untitled.png")
     print("hello")
