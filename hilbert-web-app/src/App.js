@@ -6,7 +6,7 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch('/linear').then(res => res.json()).then(data => {
+    fetch('/hilbert').then(res => res.json()).then(data => {
       setCurrentTime(data.data);
     })
   }, [])
