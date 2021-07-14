@@ -4,13 +4,43 @@
   height: 40px;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
+}
+
+.darkBar {
+  background-color: rgb(36, 36, 38) !important;
 }
 
 .titleText {
-  color: #707070;
   font-weight: normal;
   font-size: 20px;
-  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.lightText {
+  color: #707070;
+}
+
+.lightText:hover {
+  background-color: rgb(209, 209, 214);
+  border-radius: 20px;
+}
+
+.darkText {
+  color: rgb(199, 199, 204);
+}
+
+.darkText:hover {
+  background-color: rgb(28, 28, 27);
+  border-radius: 20px;
+}
+
+.lightTitleText {
+  color: #707070;
+}
+
+.darkTitleText {
+  color: rgb(199, 199, 204);
 }
 
 .bold {
@@ -18,14 +48,53 @@
 }
 
 .buttonText {
-  color: #707070;
   font-weight: normal;
   font-size: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  margin-left: 5px;
+  width: 70px;
+  height: 35px;
+  margin-right: 10px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.lightSwitch {
+  background-color: rgb(142, 142, 147) !important;
+}
+
+.darkSwitch {
+  background-color: rgb(54, 54, 56) !important;
+}
+
+.switchCircle {
+  background-color: rgb(235, 235, 240);
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-left: 5px;
+  transition: all 0.2s ease;
+}
+
+.lightCircle {
+  background-color: rgb(235, 235, 240);
+}
+
+.darkCircle {
+  background-color: rgb(174, 174, 172);
+  transform: translate(30px, 0px);
 }
