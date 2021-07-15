@@ -16,7 +16,7 @@ function Box({ colorCode, height }) {
         color = "rgb(229,229,234)";
         break;
       case "2":
-        color = "rgb(209,209,209)";
+        color = "rgb(219,219,219)";
         break;
       case "3":
         color = "rgb(199,199,204)";
