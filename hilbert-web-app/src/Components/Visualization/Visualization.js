@@ -24,7 +24,7 @@ function Visualization() {
           <div className="row">
             {row.map((element) => (
               <Box
-                color={element}
+                colorCode={element}
                 height={(window.innerHeight - 40) / currentTime.length}
               />
             ))}
