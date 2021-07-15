@@ -6,9 +6,8 @@ import time
 
 class Visualizer:
     colorList=[]
-    def __init__(self, filename):
-        with open(filename, 'rb') as f:
-            content = f.read()
+    def __init__(self, file):
+        content = file.read()
 
         fileHex = binascii.hexlify(content)
         size = len(fileHex)/2
@@ -22,17 +21,17 @@ class Visualizer:
         
     def returnColor(self, hexCode):
         if hexCode=="00":
-            return "#FFFFFF"
+            return "0"
         if hexCode=="ff":
-            return "#FFA900"
+            return "1"
         decimalRep = int(hexCode, 16)
         if decimalRep<32:
-            return "#52006A"
+            return "2"
         if decimalRep>=32 and decimalRep<=126:
-            return "#CD113B"
+            return "3"
         if decimalRep>126:
-            return "#FF7600"
-        return "#000000"
+            return "4"
+        return "5"
 
     def zigZag(self, width):
         finalList = []
@@ -51,7 +50,7 @@ class Visualizer:
                 rowCount+=1
             count+=1
         if not currentList == []:    
-            finalList.append((currentList + ["#000000"] * width)[0:width])
+            finalList.append((currentList + ["5"] * width)[0:width])
         return finalList
         
     def hilbert(self):
@@ -64,7 +63,7 @@ class Visualizer:
         rowMax = max([i[0] for i in pointList])+1
         colMax = max([i[1] for i in pointList])+1
         
-        finalList = [["#000000" for x in range(colMax)] for y in range(rowMax)]
+        finalList = [["5" for x in range(colMax)] for y in range(rowMax)]
         
         for index, currentPoint in enumerate(pointList):
             finalList[currentPoint[0]][currentPoint[1]] = self.colorList[index]

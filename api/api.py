@@ -1,16 +1,25 @@
-from flask import Flask
+from flask import Flask, request
 from pythonBackend import Visualizer
+from PIL import Image
+
+import binascii
 
 app = Flask(__name__)
-
+visualizationObject = None
 @app.route('/linear')
 def linear():
-    visualzation = Visualizer("Untitled.png")
-    print(visualzation.zigZag(19))
-    return {'data': visualzation.zigZag(19)}
+    print(visualizationObject.zigZag(19))
+    return {'data': visualizationObject.zigZag(19)}
 
 @app.route('/hilbert')
 def hilbert():
-    visualzation = Visualizer("Untitled.png")
-    print(visualzation.hilbert())
-    return {'data': visualzation.hilbert()}
+    print(visualizationObject.hilbert())
+    return {'data': visualizationObject.hilbert()}
+
+@app.route('/api/upload', methods = ['POST'])
+def upload_file():
+    global visualizationObject
+    file = request.files['file']
+    visualizationObject = Visualizer(file)
+    print("done")
+    return "done"

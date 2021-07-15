@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
-import Visualization from "./Components/Visualization/Visualization";
 
-import { ThemeProvider } from "./Store/ThemeProvider";
-import { VisualizationTypeProvider } from "./Store/VisualizationTypeProvider";
+import MainUI from "./Pages/MainUI/MainUI";
+import UploadFile from "./Pages/UploadFile/UploadFile";
 function App() {
   return (
-    <VisualizationTypeProvider>
-      <ThemeProvider>
-        <div className="App">
-          <Navbar />
-          <Visualization />
-        </div>
-      </ThemeProvider>
-    </VisualizationTypeProvider>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={UploadFile} />
+        <Route path="/main" component={MainUI} />
+      </Switch>
+    </Router>
   );
 }
 
