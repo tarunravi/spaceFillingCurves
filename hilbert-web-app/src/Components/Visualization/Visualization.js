@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Visualization.css";
 import Box from "../box/Box";
+import { VisualizationContext } from "../../Store/VisualizationTypeProvider";
 
 function Visualization() {
+  const [visualizationType, setVisualizationType] =
+    useContext(VisualizationContext);
+
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch("/hilbert")
+    fetch("/" + visualizationType)
       .then((res) => res.json())
       .then((data) => {
         setCurrentTime(data.data);
