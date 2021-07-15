@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import { ThemeContext } from "../../Store/ThemeProvider";
+import { VisualizationContext } from "../../Store/VisualizationTypeProvider";
 
 function Navbar({ color, height }) {
   const [theme, setTheme] = useContext(ThemeContext);
+  const [visualizationType, setVisualizationType] =
+    useContext(VisualizationContext);
 
   return (
     <nav className={"Navbar " + theme + "Bar"}>
@@ -13,14 +16,14 @@ function Navbar({ color, height }) {
 
       <div className="buttons">
         <h1
-          onClick={(theme) => setTheme("dark")}
+          onClick={() => setVisualizationType("linear")}
           className={"buttonText " + theme + "Text"}
         >
           Linear
         </h1>
 
         <h1
-          onClick={(theme) => setTheme("light")}
+          onClick={() => setVisualizationType("hilbert")}
           className={"buttonText " + theme + "Text"}
         >
           Hilbert

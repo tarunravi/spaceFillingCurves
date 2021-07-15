@@ -15,7 +15,7 @@ function Visualization() {
       .then((data) => {
         setCurrentTime(data.data);
       });
-  }, []);
+  }, [visualizationType]);
 
   return (
     <div className="spaceFilling">
