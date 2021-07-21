@@ -38,6 +38,8 @@ class Visualizer:
         currentList=[]
         count=1
         rowCount=0
+        print("zizZag1")
+
         for i in self.colorList:
             currentList.append(i)
             if count == width:
@@ -51,15 +53,18 @@ class Visualizer:
             count+=1
         if not currentList == []:    
             finalList.append((currentList + ["5"] * width)[0:width])
+        print(finalList)
         return finalList
         
     def hilbert(self):
         p=len(self.colorList)
         n=2
+        print("h1")
+        print(p,n)
         hilbert_curve = HilbertCurve(p, n)
         distances = list(range(len(self.colorList)))
         pointList = hilbert_curve.points_from_distances(distances)
-        
+        print("h2")
         rowMax = max([i[0] for i in pointList])+1
         colMax = max([i[1] for i in pointList])+1
         
@@ -67,5 +72,5 @@ class Visualizer:
         
         for index, currentPoint in enumerate(pointList):
             finalList[currentPoint[0]][currentPoint[1]] = self.colorList[index]
-        
+        print(finalList)
         return finalList

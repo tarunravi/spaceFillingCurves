@@ -8,12 +8,10 @@ app = Flask(__name__)
 visualizationObject = None
 @app.route('/linear')
 def linear():
-    print(visualizationObject.zigZag(19))
-    return {'data': visualizationObject.zigZag(19)}
+    return {'data': visualizationObject.zigZag(100)}
 
 @app.route('/hilbert')
 def hilbert():
-    print(visualizationObject.hilbert())
     return {'data': visualizationObject.hilbert()}
 
 @app.route('/api/upload', methods = ['POST'])

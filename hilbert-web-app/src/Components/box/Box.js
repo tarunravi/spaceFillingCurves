@@ -2,9 +2,8 @@ import React, { useState, useContext } from "react";
 import "./Box.css";
 import { ThemeContext } from "../../Store/ThemeProvider";
 
-function Box({ colorCode, height }) {
+function Box({ colorCode }) {
   const [theme, setTheme] = useContext(ThemeContext);
-  console.log(window.innerHeight);
 
   var color = "#000000";
   if (theme === "light") {
@@ -55,7 +54,7 @@ function Box({ colorCode, height }) {
     backgroundColor: color,
     flex: 1,
     width: "100%",
-    height: height + "px",
+    height: "100%",
     zIndex: "1",
   };
 
