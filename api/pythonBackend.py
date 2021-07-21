@@ -39,7 +39,7 @@ class Visualizer:
         count=1
         rowCount=0
         print("zizZag1")
-
+        print(len(self.colorList))
         for i in self.colorList:
             currentList.append(i)
             if count == width:
@@ -53,11 +53,12 @@ class Visualizer:
             count+=1
         if not currentList == []:    
             finalList.append((currentList + ["5"] * width)[0:width])
-        print(finalList)
         return finalList
         
     def hilbert(self):
-        p=len(self.colorList)
+        p=0
+        while (pow(4, p) < len(self.colorList)):
+            p+=1
         n=2
         print("h1")
         print(p,n)
