@@ -17,14 +17,24 @@ function Navbar({ color, height }) {
       <div className="buttons">
         <h1
           onClick={() => setVisualizationType("linear")}
-          className={"buttonText " + theme + "Text"}
+          className={
+            "buttonText " +
+            theme +
+            "Text" +
+            (visualizationType === "linear" ? " selected" + theme : "")
+          }
         >
           Linear
         </h1>
 
         <h1
           onClick={() => setVisualizationType("hilbert")}
-          className={"buttonText " + theme + "Text"}
+          className={
+            "buttonText " +
+            theme +
+            "Text" +
+            (visualizationType === "hilbert" ? " selected" + theme : "")
+          }
         >
           Hilbert
         </h1>
