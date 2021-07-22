@@ -2,11 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Visualization.css";
 import Box from "../box/Box";
 import { VisualizationContext } from "../../Store/VisualizationTypeProvider";
+import { ThemeContext } from "../../Store/ThemeProvider";
+
 import { FixedSizeGrid as Grid } from "react-window";
 
 function Visualization() {
   const [visualizationType, setVisualizationType] =
     useContext(VisualizationContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -46,7 +49,7 @@ function Visualization() {
   );
 
   return (
-    <div className="spaceFilling">
+    <div className={"spaceFilling " + theme}>
       {currentTime && (
         <Grid
           className="Grid"
