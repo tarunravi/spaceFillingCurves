@@ -54,10 +54,18 @@ function Visualization() {
         <Grid
           className="Grid"
           columnCount={currentTime[0].length}
-          columnWidth={100}
+          columnWidth={
+            window.innerWidth / currentTime[0].length > 50
+              ? window.innerWidth / currentTime[0].length
+              : 50
+          }
           height={window.innerHeight - 40}
           rowCount={currentTime.length}
-          rowHeight={70}
+          rowHeight={
+            window.innerWidth / currentTime[0].length > 50
+              ? window.innerWidth / currentTime[0].length
+              : 50
+          }
           width={window.innerWidth}
         >
           {Cell}
